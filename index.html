@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hamdaoui Mohamed — Portfolio</title>
+    <link rel="icon" type="image/png" href="./icons8-m-key-96.png">
     <meta name="description" content="Portfolio of Hamdaoui Mohamed — Materials Engineering student, Video Editor, DevOps & Cybersecurity Practitioner.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
@@ -145,10 +146,27 @@
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
         ::-webkit-scrollbar-thumb:hover { background: #555; }
+
+        /* Custom Cursor */
+        @media (pointer: fine) {
+            body, a, button, .cursor-pointer, .cursor-crosshair {
+                cursor: none !important;
+            }
+        }
     </style>
 </head>
 <body class="grain">
-    <div class="min-h-screen bg-[#050505] overflow-x-hidden">
+    <!-- Custom Cursor -->
+    <div id="cursor-dot" class="fixed top-0 left-0 w-3 h-3 bg-[#FF6B50] rounded-full pointer-events-none z-[9999] mix-blend-difference transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-100 ease-out hidden md:block"></div>
+    <div id="cursor-outline" class="fixed top-0 left-0 w-10 h-10 border border-[#FF6B50] rounded-full pointer-events-none z-[9998] transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ease-out hidden md:block"></div>
+
+    <!-- Dynamic Glow Background -->
+    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+        <div class="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[#FF6B50] blur-[150px] opacity-10 mix-blend-screen animate-float"></div>
+        <div class="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] rounded-full bg-[#5050FF] blur-[180px] opacity-[0.05] mix-blend-screen animate-float delay-2"></div>
+    </div>
+
+    <div class="min-h-screen bg-transparent overflow-x-hidden">
 
         <!-- ═══════════════════════════════════════════════ -->
         <!-- TOP NAVIGATION                                  -->
@@ -279,7 +297,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Profile Picture Card -->
-                <div class="rounded-[2.5rem] min-h-[520px] relative overflow-hidden group reveal delay-1 border border-[#222222]">
+                <div class="tilt-card rounded-[2.5rem] min-h-[520px] relative overflow-hidden group reveal delay-1 border border-[#222222]">
                     <img src="./IMG_3751.jpg" alt="Hamdaoui Mohamed" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
                     <div class="absolute bottom-10 left-10 right-10 z-10">
@@ -289,7 +307,7 @@
                 </div>
 
                 <!-- Card 1: Education -->
-                <div class="bg-[#111111] rounded-[2.5rem] p-12 min-h-[520px] flex flex-col justify-between relative overflow-hidden group hover:bg-[#161616] transition-all duration-500 reveal delay-2">
+                <div class="tilt-card bg-[#111111] rounded-[2.5rem] p-12 min-h-[520px] flex flex-col justify-between relative overflow-hidden group hover:bg-[#161616] transition-all duration-500 reveal delay-2">
                     <div class="absolute top-10 right-10 bg-[#1a1a1a] mono-label px-4 py-2 rounded-full text-[#888888] border border-[#333333]">
                         Education
                     </div>
@@ -306,7 +324,7 @@
                 </div>
 
                 <!-- Card 2: Languages & Details -->
-                <div class="bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] rounded-[2.5rem] p-8 md:p-12 min-h-[520px] flex flex-col justify-end relative overflow-hidden group reveal delay-3 border border-[#222222]">
+                <div class="tilt-card bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] rounded-[2.5rem] p-8 md:p-12 min-h-[520px] flex flex-col justify-end relative overflow-hidden group reveal delay-3 border border-[#222222]">
                     <div class="absolute top-10 right-10 bg-[#111111] mono-label px-4 py-2 rounded-full text-[#888888] border border-[#333333] z-10">
                         Languages
                     </div>
@@ -337,65 +355,55 @@
                 <span class="hidden md:block text-[#444444] mono-label">2021 &mdash; Present</span>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-32">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[400px]">
 
-                <!-- Project 1: Video Editor -->
-                <article class="group cursor-pointer reveal">
-                    <!-- Empty Image Placeholder -->
-                    <div class="aspect-[4/3] overflow-hidden bg-[#111111] rounded-sm flex items-center justify-center border border-[#222222]">
-                        <iconify-icon icon="lucide:video" class="text-6xl text-[#333333] group-hover:text-[#FF6B50] transition-colors duration-500"></iconify-icon>
+                <!-- Project 1: Video Editor (Span 2) -->
+                <article class="tilt-card group cursor-pointer reveal md:col-span-2 bg-[#111111] rounded-[2.5rem] p-10 flex flex-col justify-between border border-[#222222] overflow-hidden relative">
+                    <div class="absolute top-[-50%] right-[-10%] w-[80%] h-[150%] bg-[#FF6B50] blur-[120px] opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none"></div>
+                    <div class="w-16 h-16 rounded-2xl bg-[#1a1a1a] border border-[#333333] flex items-center justify-center mb-6 z-10">
+                        <iconify-icon icon="lucide:video" class="text-3xl text-white group-hover:text-[#FF6B50] transition-colors"></iconify-icon>
                     </div>
-                    <div class="mt-8 flex justify-between items-start">
-                        <div>
-                            <h3 class="text-3xl font-bold tracking-tight mb-2 group-hover:text-[#FF6B50] transition-colors duration-300">Freelance Video Editor</h3>
-                            <p class="text-[#666666] mono-label mb-3" style="letter-spacing: 0.2em;">Self-Employed / 2021 - Present</p>
-                            <p class="text-[#888888] text-sm max-w-sm">3+ years of professional editing, color grading, and delivery across promotional content and social media using DaVinci Resolve.</p>
-                        </div>
+                    <div class="relative z-10">
+                        <p class="text-[#666666] mono-label mb-3" style="letter-spacing: 0.2em;">Self-Employed / 2021 - Present</p>
+                        <h3 class="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-white group-hover:text-[#FF6B50] transition-colors">Freelance Video Editor</h3>
+                        <p class="text-[#888888] text-lg max-w-md">3+ years of professional editing, color grading, and delivery across promotional content and social media using DaVinci Resolve.</p>
                     </div>
                 </article>
 
-                <!-- Project 2: DevOps -->
-                <article class="group cursor-pointer md:mt-24 reveal delay-1">
-                    <!-- Empty Image Placeholder -->
-                    <div class="aspect-[4/3] overflow-hidden bg-[#111111] rounded-sm flex items-center justify-center border border-[#222222]">
-                        <iconify-icon icon="lucide:server" class="text-6xl text-[#333333] group-hover:text-[#FF6B50] transition-colors duration-500"></iconify-icon>
+                <!-- Project 2: DevOps (Span 1) -->
+                <article class="tilt-card group cursor-pointer reveal delay-1 bg-[#161616] rounded-[2.5rem] p-10 flex flex-col justify-between border border-[#222222] overflow-hidden relative">
+                    <div class="w-16 h-16 rounded-2xl bg-[#222222] border border-[#333333] flex items-center justify-center mb-6 z-10">
+                        <iconify-icon icon="lucide:server" class="text-3xl text-white group-hover:text-[#FF6B50] transition-colors"></iconify-icon>
                     </div>
-                    <div class="mt-8 flex justify-between items-start">
-                        <div>
-                            <h3 class="text-3xl font-bold tracking-tight mb-2 group-hover:text-[#FF6B50] transition-colors duration-300">DevOps Practitioner</h3>
-                            <p class="text-[#666666] mono-label mb-3" style="letter-spacing: 0.2em;">Personal Projects / 2023 - Present</p>
-                            <p class="text-[#888888] text-sm max-w-sm">Containerization with Docker, version control with Git, and practical experience in data processing pipelines and automation workflows.</p>
-                        </div>
+                    <div class="relative z-10">
+                        <p class="text-[#666666] mono-label mb-3" style="letter-spacing: 0.2em;">2023 - Present</p>
+                        <h3 class="text-3xl font-bold tracking-tight mb-4 text-white group-hover:text-[#FF6B50] transition-colors">DevOps<br/>Practitioner</h3>
+                        <p class="text-[#888888] text-sm">Docker containerization, Git workflows, and automation pipelines.</p>
                     </div>
                 </article>
 
-                <!-- Project 3: Cybersecurity -->
-                <article class="group cursor-pointer reveal">
-                    <!-- Empty Image Placeholder -->
-                    <div class="aspect-[4/3] overflow-hidden bg-[#111111] rounded-sm flex items-center justify-center border border-[#222222]">
-                        <iconify-icon icon="lucide:shield-check" class="text-6xl text-[#333333] group-hover:text-[#FF6B50] transition-colors duration-500"></iconify-icon>
+                <!-- Project 3: Cybersecurity (Span 1) -->
+                <article class="tilt-card group cursor-pointer reveal bg-[#161616] rounded-[2.5rem] p-10 flex flex-col justify-between border border-[#222222] overflow-hidden relative">
+                    <div class="w-16 h-16 rounded-2xl bg-[#222222] border border-[#333333] flex items-center justify-center mb-6 z-10">
+                        <iconify-icon icon="lucide:shield-check" class="text-3xl text-white group-hover:text-[#FF6B50] transition-colors"></iconify-icon>
                     </div>
-                    <div class="mt-8 flex justify-between items-start">
-                        <div>
-                            <h3 class="text-3xl font-bold tracking-tight mb-2 group-hover:text-[#FF6B50] transition-colors duration-300">Cybersecurity</h3>
-                            <p class="text-[#666666] mono-label mb-3" style="letter-spacing: 0.2em;">Personal Projects / 2023 - Present</p>
-                            <p class="text-[#888888] text-sm max-w-sm">Network reconnaissance with Nmap, solid TCP/IP fundamentals, and focus on web server security and configuration hardening.</p>
-                        </div>
+                    <div class="relative z-10">
+                        <p class="text-[#666666] mono-label mb-3" style="letter-spacing: 0.2em;">2023 - Present</p>
+                        <h3 class="text-3xl font-bold tracking-tight mb-4 text-white group-hover:text-[#FF6B50] transition-colors">Cyber<br/>Security</h3>
+                        <p class="text-[#888888] text-sm">Network reconnaissance with Nmap, TCP/IP fundamentals, and server hardening.</p>
                     </div>
                 </article>
 
-                <!-- Project 4: Linux Environment -->
-                <article class="group cursor-pointer md:mt-24 reveal delay-1">
-                    <!-- Empty Image Placeholder -->
-                    <div class="aspect-[4/3] overflow-hidden bg-[#111111] rounded-sm flex items-center justify-center border border-[#222222]">
-                        <iconify-icon icon="lucide:terminal" class="text-6xl text-[#333333] group-hover:text-[#FF6B50] transition-colors duration-500"></iconify-icon>
+                <!-- Project 4: Linux (Span 2) -->
+                <article class="tilt-card group cursor-pointer reveal delay-1 md:col-span-2 bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] rounded-[2.5rem] p-10 flex flex-col justify-between border border-[#222222] overflow-hidden relative">
+                    <div class="absolute bottom-[-50%] left-[-10%] w-[80%] h-[150%] bg-[#FF6B50] blur-[120px] opacity-0 group-hover:opacity-5 transition-opacity duration-700 pointer-events-none"></div>
+                    <div class="w-16 h-16 rounded-2xl bg-[#111111] border border-[#333333] flex items-center justify-center mb-6 z-10 relative">
+                        <iconify-icon icon="lucide:terminal" class="text-3xl text-white group-hover:text-[#FF6B50] transition-colors"></iconify-icon>
                     </div>
-                    <div class="mt-8 flex justify-between items-start">
-                        <div>
-                            <h3 class="text-3xl font-bold tracking-tight mb-2 group-hover:text-[#FF6B50] transition-colors duration-300">Linux Administration</h3>
-                            <p class="text-[#666666] mono-label mb-3" style="letter-spacing: 0.2em;">Skills & Tools</p>
-                            <p class="text-[#888888] text-sm max-w-sm">Proficient in Linux across Ubuntu, Kali Linux, Linux Mint, and CentOS. Strong Bash scripting capabilities.</p>
-                        </div>
+                    <div class="relative z-10">
+                        <p class="text-[#666666] mono-label mb-3" style="letter-spacing: 0.2em;">Skills & Tools</p>
+                        <h3 class="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-white group-hover:text-[#FF6B50] transition-colors">Linux Administration</h3>
+                        <p class="text-[#888888] text-lg max-w-md">Proficient in Ubuntu, Kali Linux, Linux Mint, and CentOS. Strong Bash scripting capabilities.</p>
                     </div>
                 </article>
 
@@ -702,6 +710,85 @@
                 }, 500); // Wait for fade out
             }, 3500); // Cycle every 3.5s
         }
+
+        // ─── Custom Cursor & Magnetic Effect ───
+        const cursorDot = document.getElementById('cursor-dot');
+        const cursorOutline = document.getElementById('cursor-outline');
+        
+        if (window.matchMedia("(pointer: fine)").matches) {
+            window.addEventListener('mousemove', (e) => {
+                const posX = e.clientX;
+                const posY = e.clientY;
+                
+                cursorDot.style.left = `${posX}px`;
+                cursorDot.style.top = `${posY}px`;
+                
+                cursorOutline.animate({
+                    left: `${posX}px`,
+                    top: `${posY}px`
+                }, { duration: 500, fill: "forwards" });
+            });
+
+            // Magnetic elements
+            const magnetics = document.querySelectorAll('a, button, .group, .tilt-card');
+            
+            magnetics.forEach(elem => {
+                elem.addEventListener('mouseenter', () => {
+                    cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                    cursorOutline.style.backgroundColor = 'rgba(255, 107, 80, 0.1)';
+                });
+                
+                elem.addEventListener('mouseleave', () => {
+                    cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
+                    cursorOutline.style.backgroundColor = 'transparent';
+                    elem.style.transform = '';
+                });
+
+                // Magnetic pull for small buttons
+                if(elem.tagName.toLowerCase() === 'a' || elem.tagName.toLowerCase() === 'button') {
+                    elem.addEventListener('mousemove', (e) => {
+                        const rect = elem.getBoundingClientRect();
+                        const h = rect.width / 2;
+                        const w = rect.height / 2;
+                        const x = e.clientX - rect.left - h;
+                        const y = e.clientY - rect.top - w;
+                        
+                        elem.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+                    });
+                }
+            });
+        }
+
+        // ─── 3D Tilt Effect on Cards ───
+        const tiltCards = document.querySelectorAll('.tilt-card');
+        tiltCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                // Only enable tilt on desktop
+                if(window.innerWidth < 768) return;
+                
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = ((y - centerY) / centerY) * -5; // Max rotation 5deg
+                const rotateY = ((x - centerX) / centerX) * 5;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+                card.style.transition = 'transform 0.5s ease';
+            });
+            
+            card.addEventListener('mouseenter', () => {
+                card.style.transition = 'none';
+            });
+        });
+
     </script>
 </body>
 </html>
