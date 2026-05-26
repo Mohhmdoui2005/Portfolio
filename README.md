@@ -3,7 +3,7 @@
 Welcome to the repository for my personal portfolio website! This project is a modern, dynamic, and highly interactive single-page application built to showcase my diverse skill set spanning Materials Engineering, Video Editing, DevOps, Cybersecurity, and Linux Administration.
 
 ## 🌟 Live Preview
-*(Add a link to your hosted portfolio here once deployed, e.g., GitHub Pages, Vercel, or Netlify)*
+[HAMDAOUI Mohamed](elhamda.vercel.app)
 
 ## ✨ Features
 
@@ -31,7 +31,7 @@ To run this project locally, you simply need a basic web server to bypass CORS r
 
 1. **Clone the repository:**
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/Mohhmdoui2005/Portfolio.git
    cd portfolio2
    ```
 
