@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hamdaoui Mohamed — Portfolio</title>
     <link rel="icon" type="image/png" href="./icons8-m-key-96.png">
-    <meta name="description" content="Portfolio of Hamdaoui Mohamed — Materials Engineering student, Video Editor, DevOps & Cybersecurity Practitioner.">
+    <meta name="description"
+        content="Portfolio of Hamdaoui Mohamed — Materials Engineering student, Video Editor, DevOps & Cybersecurity Practitioner.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <style>
@@ -87,45 +89,80 @@
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
         /* Stagger delay helpers */
-        .delay-1 { transition-delay: 0.1s; }
-        .delay-2 { transition-delay: 0.2s; }
-        .delay-3 { transition-delay: 0.3s; }
-        .delay-4 { transition-delay: 0.4s; }
+        .delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        .delay-4 {
+            transition-delay: 0.4s;
+        }
 
         /* Float animation */
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
         }
+
         .animate-float {
             animation: float 4s ease-in-out infinite;
         }
 
         /* Pulse dot */
         @keyframes pulse-dot {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
         }
+
         .pulse-dot {
             animation: pulse-dot 2s ease-in-out infinite;
         }
 
         /* Horizontal scroll marquee */
         @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
         }
+
         .marquee-track {
             animation: marquee 30s linear infinite;
         }
+
         .marquee-track:hover {
             animation-play-state: paused;
         }
@@ -142,28 +179,54 @@
         }
 
         /* Custom scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: #555; }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
 
         /* Custom Cursor */
         @media (pointer: fine) {
-            body, a, button, .cursor-pointer, .cursor-crosshair {
+
+            body,
+            a,
+            button,
+            .cursor-pointer,
+            .cursor-crosshair {
                 cursor: none !important;
             }
         }
     </style>
 </head>
+
 <body class="grain">
     <!-- Custom Cursor -->
-    <div id="cursor-dot" class="fixed top-0 left-0 w-3 h-3 bg-[#FF6B50] rounded-full pointer-events-none z-[9999] mix-blend-difference transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-100 ease-out hidden md:block"></div>
-    <div id="cursor-outline" class="fixed top-0 left-0 w-10 h-10 border border-[#FF6B50] rounded-full pointer-events-none z-[9998] transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ease-out hidden md:block"></div>
+    <div id="cursor-dot"
+        class="fixed top-0 left-0 w-3 h-3 bg-[#FF6B50] rounded-full pointer-events-none z-[9999] mix-blend-difference transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-100 ease-out hidden md:block">
+    </div>
+    <div id="cursor-outline"
+        class="fixed top-0 left-0 w-10 h-10 border border-[#FF6B50] rounded-full pointer-events-none z-[9998] transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ease-out hidden md:block">
+    </div>
 
     <!-- Dynamic Glow Background -->
     <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
-        <div class="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[#FF6B50] blur-[150px] opacity-10 mix-blend-screen animate-float"></div>
-        <div class="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] rounded-full bg-[#5050FF] blur-[180px] opacity-[0.05] mix-blend-screen animate-float delay-2"></div>
+        <div
+            class="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[#FF6B50] blur-[150px] opacity-10 mix-blend-screen animate-float">
+        </div>
+        <div
+            class="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] rounded-full bg-[#5050FF] blur-[180px] opacity-[0.05] mix-blend-screen animate-float delay-2">
+        </div>
     </div>
 
     <div class="min-h-screen bg-transparent overflow-x-hidden">
@@ -171,21 +234,29 @@
         <!-- ═══════════════════════════════════════════════ -->
         <!-- TOP NAVIGATION                                  -->
         <!-- ═══════════════════════════════════════════════ -->
-        <nav id="main-nav" class="fixed top-0 left-0 right-0 z-[100] px-6 md:px-10 py-5 flex items-center justify-between text-sm font-medium tracking-tight transition-all duration-500">
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-[100] px-6 md:px-10 py-5 flex items-center justify-between text-sm font-medium tracking-tight transition-all duration-500">
             <div class="flex items-center gap-10">
                 <a href="/" id="nav-logo" class="flex items-center group">
-                    <div class="w-9 h-9 bg-white rounded-md flex items-center justify-center text-black font-extrabold text-xl transition-all duration-300 group-hover:rotate-12 group-hover:bg-[#FF6B50]">H.</div>
+                    <div
+                        class="w-9 h-9 bg-white rounded-md flex items-center justify-center text-black font-extrabold text-xl transition-all duration-300 group-hover:rotate-12 group-hover:bg-[#FF6B50]">
+                        H.</div>
                 </a>
                 <div class="hidden lg:flex items-center gap-8 text-[#888888]">
-                    <a href="#about" id="nav-manifesto-link" class="hover:text-white transition-colors duration-200">About</a>
-                    <a href="#experience" id="nav-work-link" class="hover:text-white transition-colors duration-200">Experience</a>
-                    <a href="#skills" id="nav-principles-link" class="hover:text-white transition-colors duration-200">Skills</a>
-                    <a href="#contact" id="nav-contact-link" class="hover:text-white transition-colors duration-200">Contact</a>
+                    <a href="#about" id="nav-manifesto-link"
+                        class="hover:text-white transition-colors duration-200">About</a>
+                    <a href="#experience" id="nav-work-link"
+                        class="hover:text-white transition-colors duration-200">Experience</a>
+                    <a href="#skills" id="nav-principles-link"
+                        class="hover:text-white transition-colors duration-200">Skills</a>
+                    <a href="#contact" id="nav-contact-link"
+                        class="hover:text-white transition-colors duration-200">Contact</a>
                 </div>
             </div>
             <div class="flex items-center gap-6">
                 <span class="hidden md:block mono-label text-[#666666]">Algiers, Algeria</span>
-                <a href="#contact" id="nav-cta-btn" class="px-5 py-2.5 bg-[#1a1a1a] hover:bg-white hover:text-black border border-[#333333] rounded-lg transition-all duration-300 text-sm font-semibold">
+                <a href="#contact" id="nav-cta-btn"
+                    class="px-5 py-2.5 bg-[#1a1a1a] hover:bg-white hover:text-black border border-[#333333] rounded-lg transition-all duration-300 text-sm font-semibold">
                     Let's Collaborate
                 </a>
             </div>
@@ -194,19 +265,22 @@
         <!-- ═══════════════════════════════════════════════ -->
         <!-- FLOATING BOTTOM DOCK                            -->
         <!-- ═══════════════════════════════════════════════ -->
-        <div id="floating-dock" class="fixed bottom-8 left-1/2 -translate-x-1/2 z-[110] hidden md:flex items-center gap-2 p-2 glass-nav rounded-2xl shadow-2xl opacity-0 translate-y-8 transition-all duration-500">
+        <div id="floating-dock"
+            class="fixed bottom-8 left-1/2 -translate-x-1/2 z-[110] hidden md:flex items-center gap-2 p-2 glass-nav rounded-2xl shadow-2xl opacity-0 translate-y-8 transition-all duration-500">
             <div class="flex items-center gap-1 pr-4 border-r border-[#333333]">
                 <button id="dock-globe" class="p-3 hover:bg-[#222222] rounded-xl transition-all group" title="About">
                     <iconify-icon icon="lucide:user" class="text-xl text-white"></iconify-icon>
                 </button>
-                <button id="dock-grid" class="p-3 hover:bg-[#222222] rounded-xl transition-all group" title="Experience">
+                <button id="dock-grid" class="p-3 hover:bg-[#222222] rounded-xl transition-all group"
+                    title="Experience">
                     <iconify-icon icon="lucide:briefcase" class="text-xl text-white"></iconify-icon>
                 </button>
                 <button id="dock-code" class="p-3 hover:bg-[#222222] rounded-xl transition-all group" title="Skills">
                     <iconify-icon icon="lucide:code-2" class="text-xl text-white"></iconify-icon>
                 </button>
             </div>
-            <a href="#contact" id="floating-contact-btn" class="px-6 py-3 bg-[#FF6B50] hover:bg-[#E55A40] text-black font-bold text-sm tracking-wide uppercase rounded-xl transition-all duration-300">
+            <a href="#contact" id="floating-contact-btn"
+                class="px-6 py-3 bg-[#FF6B50] hover:bg-[#E55A40] text-black font-bold text-sm tracking-wide uppercase rounded-xl transition-all duration-300">
                 Contact
             </a>
         </div>
@@ -217,7 +291,8 @@
         <header class="relative min-h-screen w-full flex flex-col items-center justify-center px-6">
             <!-- Animated Squares Background (ported from React canvas component) -->
             <div class="absolute inset-0 z-0">
-                <canvas id="squares-canvas" style="width:100%;height:100%;display:block;border:none;background:transparent;"></canvas>
+                <canvas id="squares-canvas"
+                    style="width:100%;height:100%;display:block;border:none;background:transparent;"></canvas>
             </div>
 
             <div class="relative z-10 text-center flex flex-col items-center">
@@ -227,23 +302,28 @@
                         Available for opportunities
                     </span>
                 </div>
-                <h1 class="hero-text font-bold text-white text-center reveal delay-1 text-6xl md:text-8xl lg:text-[140px] tracking-tight">
-                    <span id="animated-name" class="inline-block transition-all duration-500 transform">Moh</span><span class="text-[#FF6B50]">.</span>
+                <h1
+                    class="hero-text font-bold text-white text-center reveal delay-1 text-6xl md:text-8xl lg:text-[140px] tracking-tight">
+                    <span id="animated-name" class="inline-block transition-all duration-500 transform">Moh</span><span
+                        class="text-[#FF6B50]">.</span>
                 </h1>
                 <p class="mt-8 text-lg md:text-xl text-[#888888] max-w-2xl mx-auto leading-relaxed reveal delay-2">
-                    Materials Engineering student combining a rigorous academic background with hands-on <span class="text-white font-medium">technical and creative experience</span>.
+                    Materials Engineering student combining a rigorous academic background with hands-on <span
+                        class="text-white font-medium">technical and creative experience</span>.
                 </p>
             </div>
 
             <!-- Bottom overlays -->
             <div class="absolute bottom-12 left-8 md:left-12 flex items-center gap-5 group reveal delay-3">
-                <p class="text-xs md:text-sm font-medium leading-tight text-[#888888] group-hover:text-white transition-colors duration-300">
-                    Engineering.<br/>Technology.<br/>Creative Work.
+                <p
+                    class="text-xs md:text-sm font-medium leading-tight text-[#888888] group-hover:text-white transition-colors duration-300">
+                    Engineering.<br />Technology.<br />Creative Work.
                 </p>
             </div>
 
             <div class="absolute bottom-12 right-8 md:right-12 text-right reveal delay-4">
-                <a href="mailto:mohamed.hamdaoui@g.enp.edu.dz" id="hero-email-link" class="text-white font-medium hover:text-[#FF6B50] transition-colors duration-300 border-b-2 border-white hover:border-[#FF6B50] pb-1 text-sm md:text-base">
+                <a href="mailto:mohamed.hamdaoui@g.enp.edu.dz" id="hero-email-link"
+                    class="text-white font-medium hover:text-[#FF6B50] transition-colors duration-300 border-b-2 border-white hover:border-[#FF6B50] pb-1 text-sm md:text-base">
                     mohamed.hamdaoui@g.enp.edu.dz
                 </a>
             </div>
@@ -254,7 +334,8 @@
         <!-- ═══════════════════════════════════════════════ -->
         <div class="border-t border-b border-[#1a1a1a] py-4 overflow-hidden">
             <div class="flex whitespace-nowrap marquee-track">
-                <span class="mx-8 text-sm font-bold uppercase tracking-[0.3em] text-[#333333]">Materials Engineering</span>
+                <span class="mx-8 text-sm font-bold uppercase tracking-[0.3em] text-[#333333]">Materials
+                    Engineering</span>
                 <span class="mx-4 text-[#FF6B50]">✦</span>
                 <span class="mx-8 text-sm font-bold uppercase tracking-[0.3em] text-[#333333]">Video Editing</span>
                 <span class="mx-4 text-[#FF6B50]">✦</span>
@@ -267,7 +348,8 @@
                 <span class="mx-8 text-sm font-bold uppercase tracking-[0.3em] text-[#333333]">Data Processing</span>
                 <span class="mx-4 text-[#FF6B50]">✦</span>
                 <!-- Duplicate for seamless loop -->
-                <span class="mx-8 text-sm font-bold uppercase tracking-[0.3em] text-[#333333]">Materials Engineering</span>
+                <span class="mx-8 text-sm font-bold uppercase tracking-[0.3em] text-[#333333]">Materials
+                    Engineering</span>
                 <span class="mx-4 text-[#FF6B50]">✦</span>
                 <span class="mx-8 text-sm font-bold uppercase tracking-[0.3em] text-[#333333]">Video Editing</span>
                 <span class="mx-4 text-[#FF6B50]">✦</span>
@@ -291,15 +373,20 @@
                 <span class="mono-label text-[#666666]">About Me</span>
             </div>
 
-            <h2 class="text-4xl md:text-7xl font-medium leading-[1.05] tracking-tight text-white max-w-5xl mb-24 reveal delay-1">
-                Ambitious and results-driven, I approach every challenge with seriousness and a desire to <span class="text-[#666666]">grow</span>.
+            <h2
+                class="text-4xl md:text-7xl font-medium leading-[1.05] tracking-tight text-white max-w-5xl mb-24 reveal delay-1">
+                Ambitious and results-driven, I approach every challenge with seriousness and a desire to <span
+                    class="text-[#666666]">grow</span>.
             </h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Profile Picture Card -->
-                <div class="tilt-card rounded-[2.5rem] min-h-[520px] relative overflow-hidden group reveal delay-1 border border-[#222222]">
-                    <img src="./IMG_3751.jpg" alt="Hamdaoui Mohamed" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
+                <div
+                    class="tilt-card rounded-[2.5rem] min-h-[520px] relative overflow-hidden group reveal delay-1 border border-[#222222]">
+                    <img src="./IMG_3751.jpg" alt="Hamdaoui Mohamed"
+                        class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90">
+                    </div>
                     <div class="absolute bottom-10 left-10 right-10 z-10">
                         <div class="mono-label text-white mb-2 tracking-widest">Hamdaoui Mohamed</div>
                         <div class="text-[#FF6B50] font-medium text-sm">Algiers, Algeria</div>
@@ -307,8 +394,10 @@
                 </div>
 
                 <!-- Card 1: Education -->
-                <div class="tilt-card bg-[#111111] rounded-[2.5rem] p-12 min-h-[520px] flex flex-col justify-between relative overflow-hidden group hover:bg-[#161616] transition-all duration-500 reveal delay-2">
-                    <div class="absolute top-10 right-10 bg-[#1a1a1a] mono-label px-4 py-2 rounded-full text-[#888888] border border-[#333333]">
+                <div
+                    class="tilt-card bg-[#111111] rounded-[2.5rem] p-12 min-h-[520px] flex flex-col justify-between relative overflow-hidden group hover:bg-[#161616] transition-all duration-500 reveal delay-2">
+                    <div
+                        class="absolute top-10 right-10 bg-[#1a1a1a] mono-label px-4 py-2 rounded-full text-[#888888] border border-[#333333]">
                         Education
                     </div>
                     <div class="mt-auto">
@@ -316,16 +405,19 @@
                         <h3 class="text-4xl md:text-5xl font-semibold tracking-tighter mb-4 text-white">
                             Bachelor's in Materials Engineering
                         </h3>
-                        <h3 class="text-2xl font-medium tracking-tight text-[#666666] group-hover:text-[#888888] transition-colors duration-500">
-                            Ecole Nationale Polytechnique d'Alger (ENPA)<br/>
+                        <h3
+                            class="text-2xl font-medium tracking-tight text-[#666666] group-hover:text-[#888888] transition-colors duration-500">
+                            Ecole Nationale Polytechnique d'Alger (ENPA)<br />
                             <span class="text-sm font-normal mt-2 block">Bab Ezzouar, Algiers</span>
                         </h3>
                     </div>
                 </div>
 
                 <!-- Card 2: Languages & Details -->
-                <div class="tilt-card bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] rounded-[2.5rem] p-8 md:p-12 min-h-[520px] flex flex-col justify-end relative overflow-hidden group reveal delay-3 border border-[#222222]">
-                    <div class="absolute top-10 right-10 bg-[#111111] mono-label px-4 py-2 rounded-full text-[#888888] border border-[#333333] z-10">
+                <div
+                    class="tilt-card bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] rounded-[2.5rem] p-8 md:p-12 min-h-[520px] flex flex-col justify-end relative overflow-hidden group reveal delay-3 border border-[#222222]">
+                    <div
+                        class="absolute top-10 right-10 bg-[#111111] mono-label px-4 py-2 rounded-full text-[#888888] border border-[#333333] z-10">
                         Languages
                     </div>
                     <div class="relative z-10 space-y-6 w-full">
@@ -335,11 +427,13 @@
                         </div>
                         <div class="border-b border-[#333333] pb-4">
                             <div class="mono-label text-[#888888] mb-1">English</div>
-                            <div class="text-2xl font-bold text-white">Fluent <span class="text-[#666666] font-normal text-lg">— Professional</span></div>
+                            <div class="text-2xl font-bold text-white">Fluent <span
+                                    class="text-[#666666] font-normal text-lg">— Professional</span></div>
                         </div>
                         <div>
                             <div class="mono-label text-[#888888] mb-1">French</div>
-                            <div class="text-2xl font-bold text-white">Good <span class="text-[#666666] font-normal text-lg">— Working</span></div>
+                            <div class="text-2xl font-bold text-white">Good <span
+                                    class="text-[#666666] font-normal text-lg">— Working</span></div>
                         </div>
                     </div>
                 </div>
@@ -358,52 +452,81 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[400px]">
 
                 <!-- Project 1: Video Editor (Span 2) -->
-                <article class="tilt-card group cursor-pointer reveal md:col-span-2 bg-[#111111] rounded-[2.5rem] p-10 flex flex-col justify-between border border-[#222222] overflow-hidden relative">
-                    <div class="absolute top-[-50%] right-[-10%] w-[80%] h-[150%] bg-[#FF6B50] blur-[120px] opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none"></div>
-                    <div class="w-16 h-16 rounded-2xl bg-[#1a1a1a] border border-[#333333] flex items-center justify-center mb-6 z-10">
-                        <iconify-icon icon="lucide:video" class="text-3xl text-white group-hover:text-[#FF6B50] transition-colors"></iconify-icon>
+                <article
+                    class="tilt-card group cursor-pointer reveal md:col-span-2 bg-[#111111] rounded-[2.5rem] p-10 flex flex-col justify-between border border-[#222222] overflow-hidden relative">
+                    <div
+                        class="absolute top-[-50%] right-[-10%] w-[80%] h-[150%] bg-[#FF6B50] blur-[120px] opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none">
+                    </div>
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-[#1a1a1a] border border-[#333333] flex items-center justify-center mb-6 z-10">
+                        <iconify-icon icon="lucide:video"
+                            class="text-3xl text-white group-hover:text-[#FF6B50] transition-colors"></iconify-icon>
                     </div>
                     <div class="relative z-10">
-                        <p class="text-[#666666] mono-label mb-3" style="letter-spacing: 0.2em;">Self-Employed / 2021 - Present</p>
-                        <h3 class="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-white group-hover:text-[#FF6B50] transition-colors">Freelance Video Editor</h3>
-                        <p class="text-[#888888] text-lg max-w-md">3+ years of professional editing, color grading, and delivery across promotional content and social media using DaVinci Resolve.</p>
+                        <p class="text-[#666666] mono-label mb-3" style="letter-spacing: 0.2em;">Self-Employed / 2021 -
+                            Present</p>
+                        <h3
+                            class="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-white group-hover:text-[#FF6B50] transition-colors">
+                            Freelance Video Editor</h3>
+                        <p class="text-[#888888] text-lg max-w-md">3+ years of professional editing, color grading, and
+                            delivery across promotional content and social media using DaVinci Resolve.</p>
                     </div>
                 </article>
 
                 <!-- Project 2: DevOps (Span 1) -->
-                <article class="tilt-card group cursor-pointer reveal delay-1 bg-[#161616] rounded-[2.5rem] p-10 flex flex-col justify-between border border-[#222222] overflow-hidden relative">
-                    <div class="w-16 h-16 rounded-2xl bg-[#222222] border border-[#333333] flex items-center justify-center mb-6 z-10">
-                        <iconify-icon icon="lucide:server" class="text-3xl text-white group-hover:text-[#FF6B50] transition-colors"></iconify-icon>
+                <article
+                    class="tilt-card group cursor-pointer reveal delay-1 bg-[#161616] rounded-[2.5rem] p-10 flex flex-col justify-between border border-[#222222] overflow-hidden relative">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-[#222222] border border-[#333333] flex items-center justify-center mb-6 z-10">
+                        <iconify-icon icon="lucide:server"
+                            class="text-3xl text-white group-hover:text-[#FF6B50] transition-colors"></iconify-icon>
                     </div>
                     <div class="relative z-10">
                         <p class="text-[#666666] mono-label mb-3" style="letter-spacing: 0.2em;">2023 - Present</p>
-                        <h3 class="text-3xl font-bold tracking-tight mb-4 text-white group-hover:text-[#FF6B50] transition-colors">DevOps<br/>Practitioner</h3>
-                        <p class="text-[#888888] text-sm">Docker containerization, Git workflows, and automation pipelines.</p>
+                        <h3
+                            class="text-3xl font-bold tracking-tight mb-4 text-white group-hover:text-[#FF6B50] transition-colors">
+                            DevOps<br />Practitioner</h3>
+                        <p class="text-[#888888] text-sm">Docker containerization, Git workflows, and automation
+                            pipelines.</p>
                     </div>
                 </article>
 
                 <!-- Project 3: Cybersecurity (Span 1) -->
-                <article class="tilt-card group cursor-pointer reveal bg-[#161616] rounded-[2.5rem] p-10 flex flex-col justify-between border border-[#222222] overflow-hidden relative">
-                    <div class="w-16 h-16 rounded-2xl bg-[#222222] border border-[#333333] flex items-center justify-center mb-6 z-10">
-                        <iconify-icon icon="lucide:shield-check" class="text-3xl text-white group-hover:text-[#FF6B50] transition-colors"></iconify-icon>
+                <article
+                    class="tilt-card group cursor-pointer reveal bg-[#161616] rounded-[2.5rem] p-10 flex flex-col justify-between border border-[#222222] overflow-hidden relative">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-[#222222] border border-[#333333] flex items-center justify-center mb-6 z-10">
+                        <iconify-icon icon="lucide:shield-check"
+                            class="text-3xl text-white group-hover:text-[#FF6B50] transition-colors"></iconify-icon>
                     </div>
                     <div class="relative z-10">
                         <p class="text-[#666666] mono-label mb-3" style="letter-spacing: 0.2em;">2023 - Present</p>
-                        <h3 class="text-3xl font-bold tracking-tight mb-4 text-white group-hover:text-[#FF6B50] transition-colors">Cyber<br/>Security</h3>
-                        <p class="text-[#888888] text-sm">Network reconnaissance with Nmap, TCP/IP fundamentals, and server hardening.</p>
+                        <h3
+                            class="text-3xl font-bold tracking-tight mb-4 text-white group-hover:text-[#FF6B50] transition-colors">
+                            Cyber<br />Security</h3>
+                        <p class="text-[#888888] text-sm">Network reconnaissance with Nmap, TCP/IP fundamentals, and
+                            server hardening.</p>
                     </div>
                 </article>
 
                 <!-- Project 4: Linux (Span 2) -->
-                <article class="tilt-card group cursor-pointer reveal delay-1 md:col-span-2 bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] rounded-[2.5rem] p-10 flex flex-col justify-between border border-[#222222] overflow-hidden relative">
-                    <div class="absolute bottom-[-50%] left-[-10%] w-[80%] h-[150%] bg-[#FF6B50] blur-[120px] opacity-0 group-hover:opacity-5 transition-opacity duration-700 pointer-events-none"></div>
-                    <div class="w-16 h-16 rounded-2xl bg-[#111111] border border-[#333333] flex items-center justify-center mb-6 z-10 relative">
-                        <iconify-icon icon="lucide:terminal" class="text-3xl text-white group-hover:text-[#FF6B50] transition-colors"></iconify-icon>
+                <article
+                    class="tilt-card group cursor-pointer reveal delay-1 md:col-span-2 bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] rounded-[2.5rem] p-10 flex flex-col justify-between border border-[#222222] overflow-hidden relative">
+                    <div
+                        class="absolute bottom-[-50%] left-[-10%] w-[80%] h-[150%] bg-[#FF6B50] blur-[120px] opacity-0 group-hover:opacity-5 transition-opacity duration-700 pointer-events-none">
+                    </div>
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-[#111111] border border-[#333333] flex items-center justify-center mb-6 z-10 relative">
+                        <iconify-icon icon="lucide:terminal"
+                            class="text-3xl text-white group-hover:text-[#FF6B50] transition-colors"></iconify-icon>
                     </div>
                     <div class="relative z-10">
                         <p class="text-[#666666] mono-label mb-3" style="letter-spacing: 0.2em;">Skills & Tools</p>
-                        <h3 class="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-white group-hover:text-[#FF6B50] transition-colors">Linux Administration</h3>
-                        <p class="text-[#888888] text-lg max-w-md">Proficient in Ubuntu, Kali Linux, Linux Mint, and CentOS. Strong Bash scripting capabilities.</p>
+                        <h3
+                            class="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-white group-hover:text-[#FF6B50] transition-colors">
+                            Linux Administration</h3>
+                        <p class="text-[#888888] text-lg max-w-md">Proficient in Ubuntu, Kali Linux, Linux Mint, and
+                            CentOS. Strong Bash scripting capabilities.</p>
                     </div>
                 </article>
 
@@ -421,45 +544,60 @@
 
             <div class="flex flex-col">
                 <!-- Skill 1 -->
-                <div class="py-10 md:py-16 border-b border-[#222222] hover:border-[#FF6B50] transition-colors duration-500 group cursor-crosshair reveal">
+                <div
+                    class="py-10 md:py-16 border-b border-[#222222] hover:border-[#FF6B50] transition-colors duration-500 group cursor-crosshair reveal">
                     <div class="flex items-baseline gap-6 md:gap-10">
-                        <span class="mono-label text-[#444444] group-hover:text-[#FF6B50] transition-colors duration-300 shrink-0">01</span>
+                        <span
+                            class="mono-label text-[#444444] group-hover:text-[#FF6B50] transition-colors duration-300 shrink-0">01</span>
                         <div class="flex-1">
-                            <h2 class="text-5xl md:text-8xl font-bold tracking-tighter uppercase text-white group-hover:text-[#FF6B50] transition-colors duration-300">
+                            <h2
+                                class="text-5xl md:text-8xl font-bold tracking-tighter uppercase text-white group-hover:text-[#FF6B50] transition-colors duration-300">
                                 AUTONOMY
                             </h2>
-                            <p class="mt-4 text-[#666666] text-base md:text-lg max-w-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-2 group-hover:translate-y-0">
-                                Self-motivated; experienced working independently as a freelancer and managing personal technical projects.
+                            <p
+                                class="mt-4 text-[#666666] text-base md:text-lg max-w-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-2 group-hover:translate-y-0">
+                                Self-motivated; experienced working independently as a freelancer and managing personal
+                                technical projects.
                             </p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Skill 2 -->
-                <div class="py-10 md:py-16 border-b border-[#222222] hover:border-[#FF6B50] transition-colors duration-500 group cursor-crosshair reveal delay-1">
+                <div
+                    class="py-10 md:py-16 border-b border-[#222222] hover:border-[#FF6B50] transition-colors duration-500 group cursor-crosshair reveal delay-1">
                     <div class="flex items-baseline gap-6 md:gap-10">
-                        <span class="mono-label text-[#444444] group-hover:text-[#FF6B50] transition-colors duration-300 shrink-0">02</span>
+                        <span
+                            class="mono-label text-[#444444] group-hover:text-[#FF6B50] transition-colors duration-300 shrink-0">02</span>
                         <div class="flex-1">
-                            <h2 class="text-5xl md:text-8xl font-bold tracking-tighter uppercase text-white group-hover:text-[#FF6B50] transition-colors duration-300">
+                            <h2
+                                class="text-5xl md:text-8xl font-bold tracking-tighter uppercase text-white group-hover:text-[#FF6B50] transition-colors duration-300">
                                 ADAPTABILITY
                             </h2>
-                            <p class="mt-4 text-[#666666] text-base md:text-lg max-w-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-2 group-hover:translate-y-0">
-                                Comfortable switching seamlessly between creative video editing, technical cybersecurity, and academic engineering tasks.
+                            <p
+                                class="mt-4 text-[#666666] text-base md:text-lg max-w-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-2 group-hover:translate-y-0">
+                                Comfortable switching seamlessly between creative video editing, technical
+                                cybersecurity, and academic engineering tasks.
                             </p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Skill 3 -->
-                <div class="py-10 md:py-16 border-b border-[#222222] hover:border-[#FF6B50] transition-colors duration-500 group cursor-crosshair reveal delay-2">
+                <div
+                    class="py-10 md:py-16 border-b border-[#222222] hover:border-[#FF6B50] transition-colors duration-500 group cursor-crosshair reveal delay-2">
                     <div class="flex items-baseline gap-6 md:gap-10">
-                        <span class="mono-label text-[#444444] group-hover:text-[#FF6B50] transition-colors duration-300 shrink-0">03</span>
+                        <span
+                            class="mono-label text-[#444444] group-hover:text-[#FF6B50] transition-colors duration-300 shrink-0">03</span>
                         <div class="flex-1">
-                            <h2 class="text-5xl md:text-8xl font-bold tracking-tighter uppercase text-white group-hover:text-[#FF6B50] transition-colors duration-300">
+                            <h2
+                                class="text-5xl md:text-8xl font-bold tracking-tighter uppercase text-white group-hover:text-[#FF6B50] transition-colors duration-300">
                                 WORK ETHIC
                             </h2>
-                            <p class="mt-4 text-[#666666] text-base md:text-lg max-w-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-2 group-hover:translate-y-0">
-                                Serious and disciplined approach to every project. Continuously acquiring new skills across engineering and technology.
+                            <p
+                                class="mt-4 text-[#666666] text-base md:text-lg max-w-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-2 group-hover:translate-y-0">
+                                Serious and disciplined approach to every project. Continuously acquiring new skills
+                                across engineering and technology.
                             </p>
                         </div>
                     </div>
@@ -474,32 +612,42 @@
             <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-end gap-16">
 
                 <div class="flex-1 reveal">
-                    <h2 class="text-[14vw] md:text-[10vw] leading-[0.85] font-black tracking-tighter text-white mb-12 select-none">
-                        LET'S<br/>TALK.
+                    <h2
+                        class="text-[14vw] md:text-[10vw] leading-[0.85] font-black tracking-tighter text-white mb-12 select-none">
+                        LET'S<br />TALK.
                     </h2>
                     <div class="flex flex-col gap-6">
-                        <a href="mailto:mohamed.hamdaoui@g.enp.edu.dz" id="footer-email-link" class="text-2xl md:text-3xl lg:text-4xl font-semibold hover:text-[#FF6B50] transition-all duration-300 w-fit">
+                        <a href="mailto:mohamed.hamdaoui@g.enp.edu.dz" id="footer-email-link"
+                            class="text-2xl md:text-3xl lg:text-4xl font-semibold hover:text-[#FF6B50] transition-all duration-300 w-fit">
                             mohamed.hamdaoui@g.enp.edu.dz
                         </a>
-                        <p class="text-[#666666] flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-6 mt-4">
-                            <span class="flex items-center gap-2"><iconify-icon icon="lucide:map-pin"></iconify-icon> Bab Ezzouar, Algiers, Algeria</span>
-                            <span class="flex items-center gap-2"><iconify-icon icon="lucide:phone"></iconify-icon> +213 559 016 900</span>
+                        <p
+                            class="text-[#666666] flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-6 mt-4">
+                            <span class="flex items-center gap-2"><iconify-icon icon="lucide:map-pin"></iconify-icon>
+                                Bab Ezzouar, Algiers, Algeria</span>
+                            <span class="flex items-center gap-2"><iconify-icon icon="lucide:phone"></iconify-icon> +213
+                                559 016 900</span>
                         </p>
                     </div>
                 </div>
 
                 <div class="flex gap-4 md:mb-6 reveal delay-1">
-                    <a href="https://linkedin.com/in/HAMDAOUI Mohamed" target="_blank" id="social-li" class="w-14 h-14 border border-[#333333] rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 hover:-translate-y-2" title="LinkedIn">
+                    <a href="https://linkedin.com/in/HAMDAOUI Mohamed" target="_blank" id="social-li"
+                        class="w-14 h-14 border border-[#333333] rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 hover:-translate-y-2"
+                        title="LinkedIn">
                         <iconify-icon icon="lucide:linkedin" class="text-xl"></iconify-icon>
                     </a>
                 </div>
             </div>
 
             <!-- Copyright bar -->
-            <div class="max-w-7xl mx-auto mt-40 pt-10 border-t border-[#111111] flex flex-col md:flex-row justify-between text-[#333333] mono-label">
-                <p>&copy; 2024 HAMDAOUI MOHAMED — Portfolio.</p>
+            <div
+                class="max-w-7xl mx-auto mt-40 pt-10 border-t border-[#111111] flex flex-col md:flex-row justify-between text-[#333333] mono-label">
+                <p>&copy; 2026 HAMDAOUI MOHAMED — Portfolio.</p>
                 <div class="flex gap-10 mt-6 md:mt-0">
-                    <a href="#" id="footer-privacy" class="hover:text-[#666666] transition-colors duration-200">References available upon request</a>
+                    <a href="#" id="footer-privacy"
+                        class="hover:text-[#666666] transition-colors duration-200">References available upon
+                        request</a>
                 </div>
             </div>
         </footer>
@@ -671,7 +819,7 @@
             }
 
             // Mouse interaction
-            canvas.addEventListener('mousemove', function(e) {
+            canvas.addEventListener('mousemove', function (e) {
                 const rect = canvas.getBoundingClientRect();
                 const mx = e.clientX - rect.left;
                 const my = e.clientY - rect.top;
@@ -682,7 +830,7 @@
                 };
             });
 
-            canvas.addEventListener('mouseleave', function() {
+            canvas.addEventListener('mouseleave', function () {
                 hoveredSquare = null;
             });
 
@@ -696,12 +844,12 @@
         const names = ["Moh", "Mohamed<br/>Hamdaoui", "ELHAMDA"];
         let currentNameIndex = 0;
         const nameElement = document.getElementById('animated-name');
-        
+
         if (nameElement) {
             setInterval(() => {
                 nameElement.style.opacity = '0';
                 nameElement.style.transform = 'translateY(10px) scale(0.98)';
-                
+
                 setTimeout(() => {
                     currentNameIndex = (currentNameIndex + 1) % names.length;
                     nameElement.innerHTML = names[currentNameIndex];
@@ -714,15 +862,15 @@
         // ─── Custom Cursor & Magnetic Effect ───
         const cursorDot = document.getElementById('cursor-dot');
         const cursorOutline = document.getElementById('cursor-outline');
-        
+
         if (window.matchMedia("(pointer: fine)").matches) {
             window.addEventListener('mousemove', (e) => {
                 const posX = e.clientX;
                 const posY = e.clientY;
-                
+
                 cursorDot.style.left = `${posX}px`;
                 cursorDot.style.top = `${posY}px`;
-                
+
                 cursorOutline.animate({
                     left: `${posX}px`,
                     top: `${posY}px`
@@ -731,13 +879,13 @@
 
             // Magnetic elements
             const magnetics = document.querySelectorAll('a, button, .group, .tilt-card');
-            
+
             magnetics.forEach(elem => {
                 elem.addEventListener('mouseenter', () => {
                     cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
                     cursorOutline.style.backgroundColor = 'rgba(255, 107, 80, 0.1)';
                 });
-                
+
                 elem.addEventListener('mouseleave', () => {
                     cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
                     cursorOutline.style.backgroundColor = 'transparent';
@@ -745,14 +893,14 @@
                 });
 
                 // Magnetic pull for small buttons
-                if(elem.tagName.toLowerCase() === 'a' || elem.tagName.toLowerCase() === 'button') {
+                if (elem.tagName.toLowerCase() === 'a' || elem.tagName.toLowerCase() === 'button') {
                     elem.addEventListener('mousemove', (e) => {
                         const rect = elem.getBoundingClientRect();
                         const h = rect.width / 2;
                         const w = rect.height / 2;
                         const x = e.clientX - rect.left - h;
                         const y = e.clientY - rect.top - w;
-                        
+
                         elem.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
                     });
                 }
@@ -764,26 +912,26 @@
         tiltCards.forEach(card => {
             card.addEventListener('mousemove', (e) => {
                 // Only enable tilt on desktop
-                if(window.innerWidth < 768) return;
-                
+                if (window.innerWidth < 768) return;
+
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
-                
+
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
-                
+
                 const rotateX = ((y - centerY) / centerY) * -5; // Max rotation 5deg
                 const rotateY = ((x - centerX) / centerX) * 5;
-                
+
                 card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
             });
-            
+
             card.addEventListener('mouseleave', () => {
                 card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
                 card.style.transition = 'transform 0.5s ease';
             });
-            
+
             card.addEventListener('mouseenter', () => {
                 card.style.transition = 'none';
             });
@@ -791,4 +939,5 @@
 
     </script>
 </body>
+
 </html>
