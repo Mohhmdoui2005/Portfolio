@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORTFOLIO/2024 — Midnight Edition</title>
+    <meta name="description" content="A curated portfolio of design and development work — craft, utility, rigor. Built with a strict midnight editorial philosophy.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+
+        @font-face {
+            font-family: 'Satoshi';
+            src: url('https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/4aed2f49-a476-436f-bae8-f31aa18f46fa/1767920861040-60c1c779/Satoshi-Variable.woff2') format('woff2');
+            font-weight: 300 900;
+            font-display: swap;
+            font-style: normal;
+        }
+
+        :root {
+            --font-satoshi: 'Satoshi', 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --color-bg: #050505;
+            --color-accent: #FF6B50;
+            --color-accent-hover: #E55A40;
+            --color-surface: #111111;
+            --color-surface-hover: #161616;
+            --color-border: #222222;
+            --color-border-subtle: #1a1a1a;
+            --color-text-primary: #ebebeb;
+            --color-text-secondary: #888888;
+            --color-text-muted: #666666;
+            --color-text-dim: #444444;
+            --color-text-faint: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-satoshi);
+            background-color: var(--color-bg);
+            color: var(--color-text-primary);
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        ::selection {
+            background-color: var(--color-accent);
+            color: white;
+        }
+
+        /* Glass navigation */
+        .glass-nav {
+            background: rgba(17, 17, 17, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Hero typography */
+        .hero-text {
+            font-size: clamp(80px, 13vw, 220px);
+            line-height: 0.88;
+            letter-spacing: -0.05em;
+            font-weight: 800;
+        }
+
+        /* Mono labels */
+        .mono-label {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+        }
+
+        /* Smooth scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stagger delay helpers */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+
+        /* Float animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Pulse dot */
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        .pulse-dot {
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        /* Horizontal scroll marquee */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .marquee-track {
+            animation: marquee 30s linear infinite;
+        }
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        /* Grain overlay */
+        .grain::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
+    </style>
+</head>
+<body class="grain">
+    <div class="min-h-screen bg-[#050505] overflow-x-hidden">
+
+        <!-- ═══════════════════════════════════════════════ -->
+        <!-- TOP NAVIGATION                                  -->
+        <!-- ═══════════════════════════════════════════════ -->
+        <nav id="main-nav" class="fixed top-0 left-0 right-0 z-[100] px-6 md:px-10 py-5 flex items-center justify-between text-sm font-medium tracking-tight transition-all duration-500">
+            <div class="flex items-center gap-10">
+                <a href="/" id="nav-logo" class="flex items-center group">
+                    <div class="w-9 h-9 bg-white rounded-md flex items-center justify-center text-black font-extrabold text-xl transition-all duration-300 group-hover:rotate-12 group-hover:bg-[#FF6B50]">P.</div>
+                </a>
+                <div class="hidden lg:flex items-center gap-8 text-[#888888]">
+                    <a href="#work" id="nav-work-link" class="hover:text-white transition-colors duration-200">Work</a>
+                    <a href="#manifesto" id="nav-manifesto-link" class="hover:text-white transition-colors duration-200">Manifesto</a>
+                    <a href="#principles" id="nav-principles-link" class="hover:text-white transition-colors duration-200">Principles</a>
+                    <a href="#contact" id="nav-contact-link" class="hover:text-white transition-colors duration-200">Contact</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-6">
+                <span class="hidden md:block mono-label text-[#666666]">Portfolio / 2024</span>
+                <a href="#contact" id="nav-cta-btn" class="px-5 py-2.5 bg-[#1a1a1a] hover:bg-white hover:text-black border border-[#333333] rounded-lg transition-all duration-300 text-sm font-semibold">
+                    Let's Collaborate
+                </a>
+            </div>
+        </nav>
+
+        <!-- ═══════════════════════════════════════════════ -->
+        <!-- FLOATING BOTTOM DOCK                            -->
+        <!-- ═══════════════════════════════════════════════ -->
+        <div id="floating-dock" class="fixed bottom-8 left-1/2 -translate-x-1/2 z-[110] hidden md:flex items-center gap-2 p-2 glass-nav rounded-2xl shadow-2xl opacity-0 translate-y-8 transition-all duration-500">
+            <div class="flex items-center gap-1 pr-4 border-r border-[#333333]">
+                <button id="dock-grid" class="p-3 hover:bg-[#222222] rounded-xl transition-all group" title="Work">
+                    <iconify-icon icon="lucide:layout-grid" class="text-xl text-white"></iconify-icon>
+                </button>
+                <button id="dock-globe" class="p-3 hover:bg-[#222222] rounded-xl transition-all group" title="About">
+                    <iconify-icon icon="lucide:globe" class="text-xl text-white"></iconify-icon>
+                </button>
+                <button id="dock-code" class="p-3 hover:bg-[#222222] rounded-xl transition-all group" title="Stack">
+                    <iconify-icon icon="lucide:code-2" class="text-xl text-white"></iconify-icon>
+                </button>
+                <button id="dock-layers" class="p-3 hover:bg-[#222222] rounded-xl transition-all group" title="Services">
+                    <iconify-icon icon="lucide:layers" class="text-xl text-white"></iconify-icon>
+                </button>
+            </div>
+            <a href="#contact" id="floating-contact-btn" class="px-6 py-3 bg-[#FF6B50] hover:bg-[#E55A40] text-black font-bold text-sm tracking-wide uppercase rounded-xl transition-all duration-300">
+                Contact
+            </a>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════ -->
+        <!-- HERO SECTION                                    -->
+        <!-- ═══════════════════════════════════════════════ -->
+        <header class="relative min-h-screen w-full flex flex-col items-center justify-center px-6">
+            <!-- Background radial glow -->
+            <div class="absolute inset-0 z-0 pointer-events-none">
+                <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_#1a1a1a_0%,_#050505_70%)] opacity-60"></div>
+                <!-- Subtle grid lines -->
+                <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px); background-size: 80px 80px;"></div>
+            </div>
+
+            <div class="relative z-10 text-center">
+                <div class="mb-8 reveal">
+                    <span class="mono-label text-[#FF6B50] inline-flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-[#FF6B50] pulse-dot inline-block"></span>
+                        Available for projects
+                    </span>
+                </div>
+                <h1 class="hero-text font-bold text-white text-center reveal delay-1">
+                    /design
+                </h1>
+                <p class="mt-8 text-lg md:text-xl text-[#888888] max-w-xl mx-auto leading-relaxed reveal delay-2">
+                    We reject digital abstraction in favor of <span class="text-white font-medium">physical printing traditions</span> — clarity, structural integrity, and high-impact communication.
+                </p>
+            </div>
+
+            <!-- Bottom overlays -->
+            <div class="absolute bottom-12 left-8 md:left-12 flex items-center gap-5 group reveal delay-3">
+                <div class="flex -space-x-4">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop" alt="Team member 1" class="w-10 h-10 rounded-full border-2 border-[#050505] object-cover grayscale group-hover:grayscale-0 transition-all duration-500" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop" alt="Team member 2" class="w-10 h-10 rounded-full border-2 border-[#050505] object-cover grayscale group-hover:grayscale-0 transition-all duration-500 delay-75" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop" alt="Team member 3" class="w-10 h-10 rounded-full border-2 border-[#050505] object-cover grayscale group-hover:grayscale-0 transition-all duration-500 delay-150" loading="lazy">
+                </div>
+                <p class="text-xs md:text-sm font-medium leading-tight text-[#888888] group-hover:text-white transition-colors duration-300">
+                    Designing the<br/>future, today.
+                </p>
+            </div>
+
+            <div class="absolute bottom-12 right-8 md:right-12 text-right reveal delay-4">
+                <a href="mailto:hello@portfolio.dev" id="hero-email-link" class="text-white font-medium hover:text-[#FF6B50] transition-colors duration-300 border-b-2 border-white hover:border-[#FF6B50] pb-1 text-sm md:text-base">
+                    hello@portfolio.dev
+                </a>
+            </div>
+        </header>
+
+        <!-- ═══════════════════════════════════════════════ -->
+        <!-- MARQUEE STRIP                                   -->
+        <!-- ═══════════════════════════════════════════════ -->
+        <div class="border-t border-b border-[#1a1a1a] py-4 overflow-hidden">
+            <div class="flex whitespace-nowrap marquee-track">
+                <span class="mx-8 text-sm font-bold uppercase tracking-[0.3em] text-[#333333]">Brand Identity</span>
+                <span class="mx-4 text-[#FF6B50]">✦</span>
+                <span class="mx-8 text-sm font-bold uppercase tracking-[0.3em] text-[#333333]">Web Design</span>
+                <span class="mx-4 text-[#FF6B50]">✦</span>
+                <span class="mx-8 text-sm font-bold uppercase tracking-[0.3em] text-[#333333]">Art Direction</span>
+                <span class="mx-4 text-[#FF6B50]">✦</span>
+                <span class="mx-8 text-sm font-bold uppercase tracking-[0.3em] text-[#333333]">Development</span>
+                <span class="mx-4 text-[#FF6B50]">✦</span>
+                <span class="mx-8 text-sm font-bold uppercase tracking-[0.3em] text-[#333333]">Editorial</span>
+                <span class="mx-4 text-[#FF6B50]">✦</span>
+                <span class="mx-8 text-sm font-bold uppercase tracking-[0.3em] text-[#333333]">Product Design</span>
+                <span class="mx-4 text-[#FF6B50]">✦</span>
+                <!-- Duplicate for seamless loop -->
+                <span class="mx-8 text-sm font-bold uppercase tracking-[0.3em] text-[#333333]">Brand Identity</span>
+                <span class="mx-4 text-[#FF6B50]">✦</span>
+                <span class="mx-8 text-sm font-bold uppercase tracking-[0.3em] text-[#333333]">Web Design</span>
+                <span class="mx-4 text-[#FF6B50]">✦</span>
+                <span class="mx-8 text-sm font-bold uppercase tracking-[0.3em] text-[#333333]">Art Direction</span>
+                <span class="mx-4 text-[#FF6B50]">✦</span>
+                <span class="mx-8 text-sm font-bold uppercase tracking-[0.3em] text-[#333333]">Development</span>
+                <span class="mx-4 text-[#FF6B50]">✦</span>
+                <span class="mx-8 text-sm font-bold uppercase tracking-[0.3em] text-[#333333]">Editorial</span>
+                <span class="mx-4 text-[#FF6B50]">✦</span>
+                <span class="mx-8 text-sm font-bold uppercase tracking-[0.3em] text-[#333333]">Product Design</span>
+                <span class="mx-4 text-[#FF6B50]">✦</span>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════ -->
+        <!-- MANIFESTO / BENEFITS SECTION                    -->
+        <!-- ═══════════════════════════════════════════════ -->
+        <section id="manifesto" class="py-32 px-6 md:px-12 max-w-7xl mx-auto">
+            <div class="flex items-center gap-3 mb-10 reveal">
+                <div class="w-2 h-2 rounded-full bg-[#FF6B50] pulse-dot"></div>
+                <span class="mono-label text-[#666666]">A strict single plane philosophy</span>
+            </div>
+
+            <h2 class="text-4xl md:text-7xl font-medium leading-[1.05] tracking-tight text-white max-w-5xl mb-24 reveal delay-1">
+                Clean, scalable design that emphasizes <span class="text-[#666666]">clarity, structural integrity</span>, and high-impact communication.
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Card 1: Craft -->
+                <div class="bg-[#111111] rounded-[2.5rem] p-12 min-h-[520px] flex flex-col justify-between relative overflow-hidden group hover:bg-[#161616] transition-all duration-500 reveal delay-2">
+                    <div class="absolute top-10 right-10 bg-[#1a1a1a] mono-label px-4 py-2 rounded-full text-[#888888] border border-[#333333]">
+                        Manifesto
+                    </div>
+                    <div class="mt-auto">
+                        <h3 class="text-5xl md:text-7xl font-semibold tracking-tighter mb-2 text-white">
+                            Craft first.
+                        </h3>
+                        <h3 class="text-5xl md:text-7xl font-semibold tracking-tighter text-[#444444] group-hover:text-[#666666] transition-colors duration-500">
+                            Ship fast.
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- Card 2: Visual with gradient -->
+                <div class="bg-gradient-to-br from-[#FF6B50] to-[#D44A30] rounded-[2.5rem] p-8 md:p-12 min-h-[520px] flex items-center justify-center relative overflow-hidden group reveal delay-3">
+                    <div class="w-full max-w-md bg-[#e5e5e5] rounded-xl shadow-2xl overflow-hidden transform group-hover:scale-105 transition-transform duration-700 ease-out">
+                        <div class="bg-[#f5f5f5] px-4 py-3 border-b border-gray-200 flex items-center gap-2">
+                            <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-green-400"></div>
+                            <div class="ml-4 h-3 w-32 bg-gray-200 rounded-full"></div>
+                        </div>
+                        <div class="aspect-video bg-gray-100 relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" alt="Dashboard preview" class="w-full h-full object-cover" loading="lazy">
+                            <div class="absolute inset-0 bg-black/20"></div>
+                            <div class="absolute bottom-6 left-6 text-white">
+                                <div class="mono-label mb-1">Latest Project</div>
+                                <div class="text-lg font-bold">Reality-First v2.0</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════ -->
+        <!-- SELECTED WORK GALLERY                           -->
+        <!-- ═══════════════════════════════════════════════ -->
+        <section id="work" class="py-32 px-6 md:px-12 max-w-7xl mx-auto">
+            <div class="flex justify-between items-end mb-20 border-b border-[#222222] pb-10 reveal">
+                <h2 class="mono-label text-[#FF6B50]" style="letter-spacing: 0.4em;">Selected Work</h2>
+                <span class="hidden md:block text-[#444444] mono-label">Volume 01 &mdash; 2024</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-32">
+
+                <!-- Project 1: KUNSTHALLE -->
+                <article class="group cursor-pointer reveal">
+                    <div class="aspect-[4/3] overflow-hidden bg-[#111111] rounded-sm">
+                        <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=1000&auto=format&fit=crop" alt="Kunsthalle editorial layout project" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" loading="lazy">
+                    </div>
+                    <div class="mt-8 flex justify-between items-start">
+                        <div>
+                            <h3 class="text-3xl font-bold tracking-tight mb-2 group-hover:text-[#FF6B50] transition-colors duration-300">KUNSTHALLE</h3>
+                            <p class="text-[#666666] mono-label" style="letter-spacing: 0.2em;">Editorial Layout / 2023</p>
+                        </div>
+                        <div class="p-3 rounded-full border border-[#333333] group-hover:bg-[#FF6B50] group-hover:text-black group-hover:border-transparent transition-all duration-300">
+                            <iconify-icon icon="lucide:arrow-up-right" class="text-2xl"></iconify-icon>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2: STRUCTURA -->
+                <article class="group cursor-pointer md:mt-24 reveal delay-1">
+                    <div class="aspect-[4/3] overflow-hidden bg-[#111111] rounded-sm">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop" alt="Structura brand identity project" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" loading="lazy">
+                    </div>
+                    <div class="mt-8 flex justify-between items-start">
+                        <div>
+                            <h3 class="text-3xl font-bold tracking-tight mb-2 group-hover:text-[#FF6B50] transition-colors duration-300">STRUCTURA</h3>
+                            <p class="text-[#666666] mono-label" style="letter-spacing: 0.2em;">Brand Identity / 2024</p>
+                        </div>
+                        <div class="p-3 rounded-full border border-[#333333] group-hover:bg-[#FF6B50] group-hover:text-black group-hover:border-transparent transition-all duration-300">
+                            <iconify-icon icon="lucide:arrow-up-right" class="text-2xl"></iconify-icon>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3: ARCHIV -->
+                <article class="group cursor-pointer reveal">
+                    <div class="aspect-[4/3] overflow-hidden bg-[#111111] rounded-sm">
+                        <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1000&auto=format&fit=crop" alt="Archiv digital platform project" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" loading="lazy">
+                    </div>
+                    <div class="mt-8 flex justify-between items-start">
+                        <div>
+                            <h3 class="text-3xl font-bold tracking-tight mb-2 group-hover:text-[#FF6B50] transition-colors duration-300">ARCHIV</h3>
+                            <p class="text-[#666666] mono-label" style="letter-spacing: 0.2em;">Digital Platform / 2024</p>
+                        </div>
+                        <div class="p-3 rounded-full border border-[#333333] group-hover:bg-[#FF6B50] group-hover:text-black group-hover:border-transparent transition-all duration-300">
+                            <iconify-icon icon="lucide:arrow-up-right" class="text-2xl"></iconify-icon>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 4: REALITY -->
+                <article class="group cursor-pointer md:mt-24 reveal delay-1">
+                    <div class="aspect-[4/3] overflow-hidden bg-[#111111] rounded-sm">
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1000&auto=format&fit=crop" alt="Reality product design project" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" loading="lazy">
+                    </div>
+                    <div class="mt-8 flex justify-between items-start">
+                        <div>
+                            <h3 class="text-3xl font-bold tracking-tight mb-2 group-hover:text-[#FF6B50] transition-colors duration-300">REALITY</h3>
+                            <p class="text-[#666666] mono-label" style="letter-spacing: 0.2em;">Product Design / SaaS</p>
+                        </div>
+                        <div class="p-3 rounded-full border border-[#333333] group-hover:bg-[#FF6B50] group-hover:text-black group-hover:border-transparent transition-all duration-300">
+                            <iconify-icon icon="lucide:arrow-up-right" class="text-2xl"></iconify-icon>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════ -->
+        <!-- PRINCIPLES SECTION (replaces "WHY")             -->
+        <!-- ═══════════════════════════════════════════════ -->
+        <section id="principles" class="py-32 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#1a1a1a]">
+            <div class="flex justify-between items-end mb-20 pb-10 reveal">
+                <h2 class="mono-label text-[#FF6B50]" style="letter-spacing: 0.4em;">Principles</h2>
+                <span class="hidden md:block text-[#444444] mono-label">Core Values</span>
+            </div>
+
+            <div class="flex flex-col">
+                <!-- Principle 1 -->
+                <div class="py-10 md:py-16 border-b border-[#222222] hover:border-[#FF6B50] transition-colors duration-500 group cursor-crosshair reveal">
+                    <div class="flex items-baseline gap-6 md:gap-10">
+                        <span class="mono-label text-[#444444] group-hover:text-[#FF6B50] transition-colors duration-300 shrink-0">01</span>
+                        <div class="flex-1">
+                            <h2 class="text-5xl md:text-8xl font-bold tracking-tighter uppercase text-white group-hover:text-[#FF6B50] transition-colors duration-300">
+                                CRAFT
+                            </h2>
+                            <p class="mt-4 text-[#666666] text-base md:text-lg max-w-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-2 group-hover:translate-y-0">
+                                Every pixel placed with intention. We obsess over the details so the whole feels effortless.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Principle 2 -->
+                <div class="py-10 md:py-16 border-b border-[#222222] hover:border-[#FF6B50] transition-colors duration-500 group cursor-crosshair reveal delay-1">
+                    <div class="flex items-baseline gap-6 md:gap-10">
+                        <span class="mono-label text-[#444444] group-hover:text-[#FF6B50] transition-colors duration-300 shrink-0">02</span>
+                        <div class="flex-1">
+                            <h2 class="text-5xl md:text-8xl font-bold tracking-tighter uppercase text-white group-hover:text-[#FF6B50] transition-colors duration-300">
+                                UTILITY
+                            </h2>
+                            <p class="mt-4 text-[#666666] text-base md:text-lg max-w-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-2 group-hover:translate-y-0">
+                                Design that serves a purpose. Not decoration — communication that drives action.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Principle 3 -->
+                <div class="py-10 md:py-16 border-b border-[#222222] hover:border-[#FF6B50] transition-colors duration-500 group cursor-crosshair reveal delay-2">
+                    <div class="flex items-baseline gap-6 md:gap-10">
+                        <span class="mono-label text-[#444444] group-hover:text-[#FF6B50] transition-colors duration-300 shrink-0">03</span>
+                        <div class="flex-1">
+                            <h2 class="text-5xl md:text-8xl font-bold tracking-tighter uppercase text-white group-hover:text-[#FF6B50] transition-colors duration-300">
+                                RIGOR
+                            </h2>
+                            <p class="mt-4 text-[#666666] text-base md:text-lg max-w-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-2 group-hover:translate-y-0">
+                                A systematic approach to visual systems. Grid-locked, typographically precise, built to scale.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════ -->
+        <!-- CTA / FOOTER SECTION                            -->
+        <!-- ═══════════════════════════════════════════════ -->
+        <footer id="contact" class="relative pt-48 pb-32 px-6 md:px-12 border-t border-[#1a1a1a]">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-end gap-16">
+
+                <div class="flex-1 reveal">
+                    <h2 class="text-[14vw] md:text-[10vw] leading-[0.85] font-black tracking-tighter text-white mb-12 select-none">
+                        LET'S<br/>TALK.
+                    </h2>
+                    <div class="flex flex-col gap-6">
+                        <a href="mailto:hello@portfolio.dev" id="footer-email-link" class="text-3xl md:text-4xl font-semibold hover:text-[#FF6B50] transition-all duration-300 w-fit">
+                            hello@portfolio.dev
+                        </a>
+                        <p class="text-[#666666] flex items-center gap-2">
+                            <iconify-icon icon="lucide:map-pin"></iconify-icon>
+                            Available for worldwide collaborations.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 md:mb-6 reveal delay-1">
+                    <a href="#" id="social-gh" class="w-14 h-14 border border-[#333333] rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 hover:-translate-y-2">
+                        <iconify-icon icon="lucide:github" class="text-xl"></iconify-icon>
+                    </a>
+                    <a href="#" id="social-tw" class="w-14 h-14 border border-[#333333] rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 hover:-translate-y-2">
+                        <iconify-icon icon="lucide:twitter" class="text-xl"></iconify-icon>
+                    </a>
+                    <a href="#" id="social-li" class="w-14 h-14 border border-[#333333] rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 hover:-translate-y-2">
+                        <iconify-icon icon="lucide:linkedin" class="text-xl"></iconify-icon>
+                    </a>
+                    <a href="#" id="social-web" class="w-14 h-14 border border-[#333333] rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 hover:-translate-y-2">
+                        <iconify-icon icon="lucide:globe" class="text-xl"></iconify-icon>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Copyright bar -->
+            <div class="max-w-7xl mx-auto mt-40 pt-10 border-t border-[#111111] flex flex-col md:flex-row justify-between text-[#333333] mono-label">
+                <p>&copy; 2024 PORTFOLIO — Reality-First Archive. All rights reserved.</p>
+                <div class="flex gap-10 mt-6 md:mt-0">
+                    <a href="#" id="footer-privacy" class="hover:text-[#666666] transition-colors duration-200">Privacy Policy</a>
+                    <a href="#" id="footer-terms" class="hover:text-[#666666] transition-colors duration-200">Terms of Service</a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SCRIPTS                                         -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <script>
+        // ─── Intersection Observer for scroll reveal ───
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -60px 0px'
+        });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // ─── Floating dock show/hide on scroll ───
+        const dock = document.getElementById('floating-dock');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const heroHeight = window.innerHeight * 0.5;
+
+            if (scrollY > heroHeight) {
+                dock.style.opacity = '1';
+                dock.style.transform = 'translateX(-50%) translateY(0)';
+            } else {
+                dock.style.opacity = '0';
+                dock.style.transform = 'translateX(-50%) translateY(2rem)';
+            }
+
+            // Nav background on scroll
+            const nav = document.getElementById('main-nav');
+            if (scrollY > 80) {
+                nav.style.background = 'rgba(5, 5, 5, 0.9)';
+                nav.style.backdropFilter = 'blur(12px)';
+            } else {
+                nav.style.background = 'transparent';
+                nav.style.backdropFilter = 'none';
+            }
+
+            lastScroll = scrollY;
+        });
+
+        // ─── Smooth scroll for internal links ───
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(targetId);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // ─── Dock button scroll shortcuts ───
+        document.getElementById('dock-grid')?.addEventListener('click', () => {
+            document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
+        });
+        document.getElementById('dock-globe')?.addEventListener('click', () => {
+            document.getElementById('manifesto')?.scrollIntoView({ behavior: 'smooth' });
+        });
+        document.getElementById('dock-code')?.addEventListener('click', () => {
+            document.getElementById('principles')?.scrollIntoView({ behavior: 'smooth' });
+        });
+        document.getElementById('dock-layers')?.addEventListener('click', () => {
+            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
