@@ -200,11 +200,9 @@
         <!-- HERO SECTION                                    -->
         <!-- ═══════════════════════════════════════════════ -->
         <header class="relative min-h-screen w-full flex flex-col items-center justify-center px-6">
-            <!-- Background radial glow -->
-            <div class="absolute inset-0 z-0 pointer-events-none">
-                <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_#1a1a1a_0%,_#050505_70%)] opacity-60"></div>
-                <!-- Subtle grid lines -->
-                <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px); background-size: 80px 80px;"></div>
+            <!-- Animated Squares Background (ported from React canvas component) -->
+            <div class="absolute inset-0 z-0">
+                <canvas id="squares-canvas" style="width:100%;height:100%;display:block;border:none;background:transparent;"></canvas>
             </div>
 
             <div class="relative z-10 text-center">
@@ -583,6 +581,121 @@
         document.getElementById('dock-layers')?.addEventListener('click', () => {
             document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
         });
+
+        // ─── Squares Background Animation (vanilla JS port) ───
+        (function initSquares() {
+            const canvas = document.getElementById('squares-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            if (!ctx) return;
+
+            // Configuration — tuned for midnight editorial palette
+            const config = {
+                direction: 'diagonal',
+                speed: 0.4,
+                borderColor: 'rgba(255, 255, 255, 0.06)',
+                squareSize: 44,
+                hoverFillColor: 'rgba(255, 107, 80, 0.04)',
+                vignetteColor: 'rgba(5, 5, 5, 0.85)'
+            };
+
+            // State
+            const gridOffset = { x: 0, y: 0 };
+            let hoveredSquare = null;
+            let animationId = null;
+
+            function resizeCanvas() {
+                canvas.width = canvas.offsetWidth;
+                canvas.height = canvas.offsetHeight;
+            }
+
+            function drawGrid() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                const { squareSize, borderColor, hoverFillColor } = config;
+                const startX = Math.floor(gridOffset.x / squareSize) * squareSize;
+                const startY = Math.floor(gridOffset.y / squareSize) * squareSize;
+
+                ctx.lineWidth = 0.5;
+
+                for (let x = startX; x < canvas.width + squareSize; x += squareSize) {
+                    for (let y = startY; y < canvas.height + squareSize; y += squareSize) {
+                        const squareX = x - (gridOffset.x % squareSize);
+                        const squareY = y - (gridOffset.y % squareSize);
+
+                        const gx = Math.floor((x - startX) / squareSize);
+                        const gy = Math.floor((y - startY) / squareSize);
+
+                        // Hover fill
+                        if (hoveredSquare && gx === hoveredSquare.x && gy === hoveredSquare.y) {
+                            ctx.fillStyle = hoverFillColor;
+                            ctx.fillRect(squareX, squareY, squareSize, squareSize);
+                        }
+
+                        ctx.strokeStyle = borderColor;
+                        ctx.strokeRect(squareX, squareY, squareSize, squareSize);
+                    }
+                }
+
+                // Radial vignette overlay
+                const cx = canvas.width / 2;
+                const cy = canvas.height / 2;
+                const radius = Math.sqrt(canvas.width * canvas.width + canvas.height * canvas.height) / 2;
+                const gradient = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+                gradient.addColorStop(0, 'rgba(0, 0, 0, 0)');
+                gradient.addColorStop(1, config.vignetteColor);
+                ctx.fillStyle = gradient;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            }
+
+            function updateAnimation() {
+                const s = Math.max(config.speed, 0.1);
+                const sz = config.squareSize;
+
+                switch (config.direction) {
+                    case 'diagonal':
+                        gridOffset.x = (gridOffset.x - s + sz) % sz;
+                        gridOffset.y = (gridOffset.y - s + sz) % sz;
+                        break;
+                    case 'right':
+                        gridOffset.x = (gridOffset.x - s + sz) % sz;
+                        break;
+                    case 'left':
+                        gridOffset.x = (gridOffset.x + s + sz) % sz;
+                        break;
+                    case 'up':
+                        gridOffset.y = (gridOffset.y + s + sz) % sz;
+                        break;
+                    case 'down':
+                        gridOffset.y = (gridOffset.y - s + sz) % sz;
+                        break;
+                }
+
+                drawGrid();
+                animationId = requestAnimationFrame(updateAnimation);
+            }
+
+            // Mouse interaction
+            canvas.addEventListener('mousemove', function(e) {
+                const rect = canvas.getBoundingClientRect();
+                const mx = e.clientX - rect.left;
+                const my = e.clientY - rect.top;
+                const sz = config.squareSize;
+                hoveredSquare = {
+                    x: Math.floor((mx + (gridOffset.x % sz)) / sz),
+                    y: Math.floor((my + (gridOffset.y % sz)) / sz)
+                };
+            });
+
+            canvas.addEventListener('mouseleave', function() {
+                hoveredSquare = null;
+            });
+
+            // Init
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+            animationId = requestAnimationFrame(updateAnimation);
+        })();
     </script>
 </body>
 </html>
