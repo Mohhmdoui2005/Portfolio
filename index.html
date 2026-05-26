@@ -204,18 +204,13 @@
 
             <div class="relative z-10 text-center flex flex-col items-center">
                 <div class="mb-8 reveal flex flex-col items-center gap-6">
-                    <!-- Empty Image Placeholder -->
-                    <div class="w-24 h-24 rounded-full border-2 border-[#333333] bg-[#111111] flex items-center justify-center text-[#444444] shadow-xl overflow-hidden relative">
-                        <iconify-icon icon="lucide:image" class="text-3xl"></iconify-icon>
-                        <span class="absolute inset-0 flex items-center justify-center bg-black/50 text-[10px] font-mono uppercase tracking-widest text-white/70">Photo</span>
-                    </div>
                     <span class="mono-label text-[#FF6B50] inline-flex items-center gap-2">
                         <span class="w-2 h-2 rounded-full bg-[#FF6B50] pulse-dot inline-block"></span>
                         Available for opportunities
                     </span>
                 </div>
                 <h1 class="hero-text font-bold text-white text-center reveal delay-1 text-6xl md:text-8xl lg:text-[140px] tracking-tight">
-                    Hamdaoui.
+                    <span id="animated-name" class="inline-block transition-all duration-500 transform">Moh</span><span class="text-[#FF6B50]">.</span>
                 </h1>
                 <p class="mt-8 text-lg md:text-xl text-[#888888] max-w-2xl mx-auto leading-relaxed reveal delay-2">
                     Materials Engineering student combining a rigorous academic background with hands-on <span class="text-white font-medium">technical and creative experience</span>.
@@ -282,7 +277,17 @@
                 Ambitious and results-driven, I approach every challenge with seriousness and a desire to <span class="text-[#666666]">grow</span>.
             </h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Profile Picture Card -->
+                <div class="rounded-[2.5rem] min-h-[520px] relative overflow-hidden group reveal delay-1 border border-[#222222]">
+                    <img src="./IMG_3751.jpg" alt="Hamdaoui Mohamed" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
+                    <div class="absolute bottom-10 left-10 right-10 z-10">
+                        <div class="mono-label text-white mb-2 tracking-widest">Hamdaoui Mohamed</div>
+                        <div class="text-[#FF6B50] font-medium text-sm">Algiers, Algeria</div>
+                    </div>
+                </div>
+
                 <!-- Card 1: Education -->
                 <div class="bg-[#111111] rounded-[2.5rem] p-12 min-h-[520px] flex flex-col justify-between relative overflow-hidden group hover:bg-[#161616] transition-all duration-500 reveal delay-2">
                     <div class="absolute top-10 right-10 bg-[#1a1a1a] mono-label px-4 py-2 rounded-full text-[#888888] border border-[#333333]">
@@ -678,6 +683,25 @@
             resizeCanvas();
             animationId = requestAnimationFrame(updateAnimation);
         })();
+
+        // ─── Name Cycle Animation ───
+        const names = ["Moh", "Mohamed<br/>Hamdaoui", "ELHAMDA"];
+        let currentNameIndex = 0;
+        const nameElement = document.getElementById('animated-name');
+        
+        if (nameElement) {
+            setInterval(() => {
+                nameElement.style.opacity = '0';
+                nameElement.style.transform = 'translateY(10px) scale(0.98)';
+                
+                setTimeout(() => {
+                    currentNameIndex = (currentNameIndex + 1) % names.length;
+                    nameElement.innerHTML = names[currentNameIndex];
+                    nameElement.style.opacity = '1';
+                    nameElement.style.transform = 'translateY(0) scale(1)';
+                }, 500); // Wait for fade out
+            }, 3500); // Cycle every 3.5s
+        }
     </script>
 </body>
 </html>
