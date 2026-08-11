@@ -3,7 +3,7 @@
 Welcome to the repository for my personal portfolio website! This project is a modern, dynamic, and highly interactive single-page application built to showcase my diverse skill set spanning Materials Engineering, Video Editing, DevOps, Cybersecurity, and Linux Administration.
 
 ## 🌟 Live Preview
-[HAMDAOUI Mohamed](elhamda.vercel.app)
+[HAMDAOUI Mohamed](https://elhamda.vercel.app)
 
 ## ✨ Features
 
